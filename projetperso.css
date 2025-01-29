@@ -5,6 +5,7 @@ body {
     color: #333;
 }
 
+/* ---- Menu horizontal (visible sur desktop) ---- */
 .menu {
     display: flex;
     align-items: center;
@@ -17,8 +18,7 @@ body {
 .menu ul {
     list-style: none;
     display: flex;
-    flex-direction: row; /* Revient à une disposition en ligne */
-    margin: 15px;
+    margin: 0;
     padding: 0;
 }
 
@@ -36,6 +36,61 @@ body {
 
 .menu ul li a:hover {
     color: #d3d3d3;
+}
+
+/* ---- Menu latéral (caché par défaut) ---- */
+.sidebar {
+    position: fixed;
+    left: -250px; /* Caché à gauche */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #000;
+    padding-top: 20px;
+    transition: left 0.3s;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background: #444;
+}
+
+/* Afficher la sidebar quand elle est active */
+.sidebar.open {
+    left: 0;
+}
+
+/* ---- Bouton menu burger (mobile) ---- */
+.menu-btn {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
 }
 
 header {
@@ -62,9 +117,9 @@ main {
 
 main h2 {
     font-size: 1.8em;
-    color: #cca9dd;
+    color: #ADD8E6;
     margin-bottom: 10px;
-    border-bottom: 2px solid #cca9dd;
+    border-bottom: 2px solid #ADD8E6;
     display: inline-block;
     padding-bottom: 5px;
 }
@@ -95,5 +150,49 @@ footer {
     color: #fff;
 }
 
+/* Styles pour écrans inférieurs à 768px (tablette et mobile) */
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none; /* Cacher le menu horizontal */
+    }
 
+    .menu-btn {
+        display: block; /* Afficher le bouton burger */
+    }
+
+    header .header-content h1 {
+        font-size: 2em;
+    }
+
+    header .header-content p {
+        font-size: 1em;
+    }
+
+   
+}
+
+/* Styles pour écrans inférieurs à 480px (smartphones) */
+@media screen and (max-width: 480px) {
+    .menu {
+        display: none; /* Cacher le menu horizontal */
+    }
+
+    .menu-btn {
+        display: block; /* Afficher le bouton burger */
+    }
+
+    header {
+        padding: 30px 10px;
+    }
+
+    header .header-content h1 {
+        font-size: 1.8em;
+    }
+
+    header .header-content p {
+        font-size: 0.9em;
+    }
+
+   
+}
 
